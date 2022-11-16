@@ -6,27 +6,27 @@
 /*   By: hidhmmou <hidhmmou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:49:36 by hidhmmou          #+#    #+#             */
-/*   Updated: 2022/11/15 21:05:09 by hidhmmou         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:34:35 by hidhmmou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-// int ft_check_nbr(char *nbr)
-// {
-//     int i;
+int ft_check_nbr(char *nbr)
+{
+    int i;
     
-//     i = 0;
-//     if (nbr[i] == '-')
-//         i++;
-//     while (nbr[i])
-//     {
-//         if (!ft_isdigit(nbr[i]))
-//             return (0);
-//         i++;
-//     }
-//     return (1);
-// }
+    i = 0;
+    if (nbr[i] == '-')
+        i++;
+    while (nbr[i])
+    {
+        if (!ft_isdigit(nbr[i]))
+            return (0);
+        i++;
+    }
+    return (1);
+}
 
 int ft_check_dup(t_both *stacks, int nbr)
 {
@@ -36,11 +36,11 @@ int ft_check_dup(t_both *stacks, int nbr)
     i = 0;
     size = stacks->stack_a.u_size;
     if (size == 0)
-        return (1);
+        return (0);
     while (i < size)
     {
         if (stacks->stack_a.number[i] == nbr)
-            return (0);
+            return (1);
         i++;
     }
     return (0);

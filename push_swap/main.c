@@ -6,7 +6,7 @@
 /*   By: hidhmmou <hidhmmou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:47:54 by hidhmmou          #+#    #+#             */
-/*   Updated: 2022/11/15 20:46:35 by hidhmmou         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:53:39 by hidhmmou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,3 @@ int main(int ac, char *av[])
         ft_five_handred(&stacks);
     return (ft_error(NULL, 0, &stacks));
 }
-
-    //int i = 0;//
-    // printf("%d", stacks.stack_a.size);
-    // return 0;

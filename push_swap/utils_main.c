@@ -6,7 +6,7 @@
 /*   By: hidhmmou <hidhmmou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:59:28 by hidhmmou          #+#    #+#             */
-/*   Updated: 2022/11/15 21:13:20 by hidhmmou         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:48:24 by hidhmmou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ t_both	ft_store_numbers(char *str)
 	numbers = ft_new_stacks(str, &stacks);
 	while (numbers[i])
 	{
-		//if (!ft_check_nbr(numbers[i]))//
-		//	exit(ft_error("Error", 0, &stacks));
 		nbr = ft_atoi(numbers[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
+			exit(ft_error("Error", 0, &stacks));
+		if (ft_check_dup(&stacks, nbr))
 			exit(ft_error("Error", 0, &stacks));
 		stacks.stack_a.number[i] = nbr;
 		stacks.stack_a.u_size++;
@@ -52,22 +52,6 @@ t_both	ft_store_numbers(char *str)
 	}
     free (numbers);
     return (stacks);
-}
-
-int ft_check_nbr(char *nbr)
-{
-    int i;
-    
-    i = 0;
-    if (nbr[i] == '-')
-        i++;
-    while (nbr[i])
-    {
-        if (!ft_isdigit(nbr[i]))
-            return (0);
-        i++;
-    }
-    return (1);
 }
 
 char	*ft_av_to_string(char **av)
