@@ -6,7 +6,7 @@
 /*   By: hidhmmou <hidhmmou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 01:30:56 by hidhmmou          #+#    #+#             */
-/*   Updated: 2022/11/18 21:09:15 by hidhmmou         ###   ########.fr       */
+/*   Updated: 2022/12/01 01:44:42 by hidhmmou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ void	ft_rotate(t_stack **stack)
 	t_stack	*holder;
 	t_stack	*new_tail;
 
-	new_tail = *stack;
-	*stack = (*stack)->next;
-	holder = *stack;
-	while (holder->next)
-		holder = holder->next;
-	holder->next = new_tail;
-	holder->next->next = NULL;
+	if (*stack && (*stack)->next)
+	{
+		new_tail = *stack;
+		*stack = (*stack)->next;
+		holder = *stack;
+		while (holder->next)
+			holder = holder->next;
+		holder->next = new_tail;
+		holder->next->next = NULL;
+	}
 }
 
 void	ft_ra_rb_rr(t_stack **stack_a, t_stack **stack_b, int print, char stack)
